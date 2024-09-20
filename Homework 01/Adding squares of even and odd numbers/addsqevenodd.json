@@ -1,0 +1,170 @@
+{
+  "functions": [
+    {
+      "instrs": [
+        {
+          "dest": "sum_even",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "sum_odd",
+          "op": "const",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "dest": "i",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "dest": "limit",
+          "op": "const",
+          "type": "int",
+          "value": 10
+        },
+        {
+          "dest": "one",
+          "op": "const",
+          "type": "int",
+          "value": 1
+        },
+        {
+          "dest": "two",
+          "op": "const",
+          "type": "int",
+          "value": 2
+        },
+        {
+          "label": "loop"
+        },
+        {
+          "args": [
+            "i",
+            "i"
+          ],
+          "dest": "square",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "i",
+            "two"
+          ],
+          "dest": "half",
+          "op": "div",
+          "type": "int"
+        },
+        {
+          "args": [
+            "half",
+            "two"
+          ],
+          "dest": "check",
+          "op": "mul",
+          "type": "int"
+        },
+        {
+          "args": [
+            "check",
+            "i"
+          ],
+          "dest": "is_even",
+          "op": "eq",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "is_even"
+          ],
+          "labels": [
+            "even_case",
+            "odd_case"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "even_case"
+        },
+        {
+          "args": [
+            "sum_even",
+            "square"
+          ],
+          "dest": "sum_even",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "labels": [
+            "increment"
+          ],
+          "op": "jmp"
+        },
+        {
+          "label": "odd_case"
+        },
+        {
+          "args": [
+            "sum_odd",
+            "square"
+          ],
+          "dest": "sum_odd",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "label": "increment"
+        },
+        {
+          "args": [
+            "i",
+            "one"
+          ],
+          "dest": "i",
+          "op": "add",
+          "type": "int"
+        },
+        {
+          "args": [
+            "i",
+            "limit"
+          ],
+          "dest": "cond",
+          "op": "le",
+          "type": "bool"
+        },
+        {
+          "args": [
+            "cond"
+          ],
+          "labels": [
+            "loop",
+            "exit"
+          ],
+          "op": "br"
+        },
+        {
+          "label": "exit"
+        },
+        {
+          "args": [
+            "sum_even"
+          ],
+          "op": "print"
+        },
+        {
+          "args": [
+            "sum_odd"
+          ],
+          "op": "print"
+        }
+      ],
+      "name": "main"
+    }
+  ]
+}
