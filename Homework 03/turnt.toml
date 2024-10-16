@@ -1,0 +1,15 @@
+[envs.liveness]
+command = "bril2json < {filename} | python3 df_analysis.py liveness"
+output."liveness.out" = "-"
+
+[envs.vbe]
+command = "bril2json < {filename} | python3 df_analysis.py vbe"
+output."verybusy.out" = "-"
+
+[envs.available_expr]
+command = "bril2json < {filename} | python3 df_analysis.py available_expr"
+output."availableexpression.out" = "-"
+
+[envs.reaching_defs]
+command = "bril2json < {filename} | python3 df_analysis.py reaching_defs"
+output."reaching_defs.out" = "-"
